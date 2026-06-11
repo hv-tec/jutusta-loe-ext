@@ -1,0 +1,60 @@
+# Chrome Web Store — avaldamise materjalid
+
+Kõik tekstid ja varad poe-vormi täitmiseks. Kopeeri väljadesse Developer Dashboardis.
+
+## Põhiväljad
+
+**Nimi:** Jutusta — Loe eesti keeles
+
+**Lühikirjeldus** (≤132 tähemärki):
+> Vali veebilehel ingliskeelne tekst ja kuula see eesti keeles ette — tõlge + kõnesüntees Jutusta API kaudu.
+
+**Kategooria:** Productivity (alt: Accessibility)
+
+**Keel:** Eesti
+
+## Detailne kirjeldus
+
+> **Loe ingliskeelne (või muukeelne) veeb eesti keeles ette.**
+>
+> Vali suvalisel veebilehel tekst ja lase see eesti keeles ette lugeda. Laiendus tõlgib valiku ja loeb selle loomuliku eestikeelse häälega — heli algab kohe ja jätkub sujuvalt, sest järgmist lõiku genereeritakse juba eelmise mängimise ajal.
+>
+> **Funktsioonid**
+> • 12 eestikeelset häält (mehed ja naised)
+> • Käivitus: hõljuv „Loe eesti k.“ nupp valikul, paremklõpsu menüü või kiirklahv Alt+Shift+R
+> • Reguleeritav kõnetempo (0,5×–2×)
+> • Vali ka lähtekeel (nt en, de, ru) ja sihtkeel
+> • Peata igal hetkel klahviga Esc
+>
+> **Vajab Jutusta API võtit** (jutusta.ee → Arendajatele). Võti salvestatakse ainult sinu brauseris.
+>
+> Avatud lähtekood: https://github.com/hv-tec/jutusta-loe-ext
+
+## Õiguste põhjendused (Permission justifications)
+
+- **storage** — API võtme ja kasutaja eelistuste (hääl, keel, tempo) salvestamiseks lokaalselt.
+- **contextMenus** — paremklõpsu valiku „Loe eesti keeles ette“ lisamiseks.
+- **host_permissions: https://jutusta.ee/** — tõlke- ja kõnesünteesi-päringute tegemiseks Jutusta API-le.
+- **Single purpose:** valitud teksti tõlkimine eesti keelde ja ettelugemine.
+
+## Andmekasutuse deklaratsioon (Data usage)
+- Kogub: **autentimisteave** (kasutaja sisestatud API võti, hoitakse lokaalselt) ja **kasutaja sisu** (valitud tekst, saadetakse Jutusta API-le töötlemiseks).
+- EI müü andmeid kolmandatele. EI kasuta andmeid laienduse põhifunktsiooniga mitteseotud eesmärkidel. EI kasuta krediidivõimekuse hindamiseks.
+
+**Privaatsuspoliitika URL:**
+> https://github.com/hv-tec/jutusta-loe-ext/blob/main/PRIVACY.md
+
+## Varad (store-assets/)
+- Ikoon 128×128: `icons/icon128.png`
+- Screenshot 1280×800: `store-assets/screenshot-1280x800.png`
+- Väike promo-tile 440×280: `store-assets/promo-tile-440x280.png`
+
+## Üleslaaditav pakett
+`dist/jutusta-loe-ext.zip` (ehita: `bash tools/build-zip.sh`)
+
+## Käsitsi sammud (ainult sina saad teha)
+1. Registreeru Chrome Web Store Developer'iks: https://chrome.google.com/webstore/devconsole (ühekordne 5 USD tasu)
+2. „Add new item“ → laadi üles `dist/jutusta-loe-ext.zip`
+3. Täida ülaltoodud kirjeldus, kategooria, keel; laadi screenshot + ikoon
+4. Kleebi privaatsuspoliitika URL; täida andmekasutuse vorm ülaltoodu järgi
+5. Esita ülevaatamiseks (review võtab tavaliselt mõne päeva)

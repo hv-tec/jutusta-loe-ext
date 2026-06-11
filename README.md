@@ -2,6 +2,8 @@
 
 Vali veebilehel ingliskeelne (või muu) tekst ja lase see **eesti keeles ette lugeda**. Laiendus tõlgib valiku Jutusta `/translate/chunk` kaudu ja loeb ette `/text-to-speech` kaudu — heli mängib järjest, järgmist lõiku genereeritakse juba eelmise mängimise ajal.
 
+![Jutusta — Loe eesti keeles](store-assets/screenshot-1280x800.png)
+
 ## Paigaldus (arendusrežiim)
 
 1. Ava Chrome → `chrome://extensions`
@@ -29,7 +31,18 @@ Peatamiseks vajuta **Esc** või klõpsa olekuriba **Peata** nuppu (all paremas).
 - `options.html/js` — API võti + hääl + keeled + tempo (`chrome.storage.local`)
 - `popup.html/js` — kiirstaatus + seadete link
 
+## Käsurea-tööriist (CLI)
+Sama loogika terminalist — vt [`cli/`](cli/): `loe <URL>` laeb lehe, tõlgib ja loeb eesti keeles ette (macOS).
+
+## Chrome Web Store
+Avaldamise materjalid ja sammud: [`STORE.md`](STORE.md). Üleslaaditava paketi ehitamine:
+```bash
+bash tools/build-zip.sh   # → dist/jutusta-loe-ext.zip
+```
+Ikoonid/promo regenereerimine: `tools/make_icons.py`, `tools/make_promo.py` (vajab Pillow'd).
+
 ## Märkused
 - API võti on salvestatud `chrome.storage.local`-i — see on selle brauseriprofiili sees nähtav (devtools/teised laiendused). Sobib isiklikuks kasutuseks.
 - Kloonitud häältega töötab samuti (sisesta seadetes nende `voice_id`).
 - Tõlke `source` ei tohi olla `auto` — pane konkreetne ISO kood.
+- Privaatsuspoliitika: [`PRIVACY.md`](PRIVACY.md).
