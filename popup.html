@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="et">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body { font: 13px/1.5 -apple-system, system-ui, sans-serif; width: 260px; margin: 0; padding: 14px; color: #111; }
+      h1 { font-size: 15px; margin: 0 0 8px; }
+      p { margin: 6px 0; }
+      .status { padding: 6px 8px; border-radius: 6px; font-size: 12px; }
+      .ok { background: #e6f4ea; color: #137333; }
+      .warn { background: #fce8e6; color: #b00020; }
+      button { margin-top: 10px; width: 100%; padding: 8px; border: none; border-radius: 7px; background: #1f6feb; color: #fff; font: inherit; cursor: pointer; }
+      kbd { background: #eee; border-radius: 4px; padding: 1px 5px; font-size: 11px; }
+    </style>
+  </head>
+  <body>
+    <h1>🔊 Loe eesti keeles</h1>
+    <div id="status" class="status">…</div>
+    <p>Vali lehel tekst → klõpsa <b>🔊 Loe eesti k.</b> nuppu, paremklõpsu menüüd, või vajuta <kbd>Alt+Shift+R</kbd>.</p>
+    <button id="opts">Ava seaded</button>
+    <script src="popup.js"></script>
+  </body>
+</html>

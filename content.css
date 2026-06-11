@@ -1,0 +1,44 @@
+.jutusta-read-btn {
+  position: absolute;
+  z-index: 2147483647;
+  background: #1f6feb;
+  color: #fff;
+  font: 13px/1.2 -apple-system, system-ui, sans-serif;
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.jutusta-read-btn:hover {
+  background: #388bfd;
+}
+
+.jutusta-status {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 2147483647;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: #1f2937;
+  color: #fff;
+  font: 13px/1.3 -apple-system, system-ui, sans-serif;
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+.jutusta-status .jt-stop {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font: inherit;
+}
+.jutusta-status .jt-stop:hover {
+  background: rgba(255, 255, 255, 0.28);
+}

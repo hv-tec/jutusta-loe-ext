@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Jutusta — Loe eesti keeles",
+  "version": "1.0.0",
+  "description": "Loeb valitud ingliskeelse teksti eesti keeles ette: tõlge + kõnesüntees Jutusta API kaudu.",
+  "permissions": ["contextMenus", "storage"],
+  "host_permissions": ["https://jutusta.ee/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Jutusta — Loe eesti keeles"
+  },
+  "commands": {
+    "read-selection": {
+      "suggested_key": { "default": "Alt+Shift+R" },
+      "description": "Loe valitud tekst eesti keeles ette"
+    }
+  }
+}
