@@ -21,7 +21,7 @@ Kõik tekstid ja varad poe-vormi täitmiseks. Kopeeri väljadesse Developer Dash
 >
 > **Funktsioonid**
 > • 12 eestikeelset häält (mehed ja naised)
-> • Käivitus: hõljuv „Loe eesti k.“ nupp valikul, paremklõpsu menüü või kiirklahv Alt+Shift+R
+> • Käivitus: vali tekst → paremklõpsu menüü „Loe eesti keeles ette“ või kiirklahv Alt+Shift+R
 > • Reguleeritav kõnetempo (0,5×–2×)
 > • Vali ka lähtekeel (nt en, de, ru) ja sihtkeel
 > • Peata igal hetkel klahviga Esc
@@ -34,6 +34,8 @@ Kõik tekstid ja varad poe-vormi täitmiseks. Kopeeri väljadesse Developer Dash
 
 - **storage** — API võtme ja kasutaja eelistuste (hääl, keel, tempo) salvestamiseks lokaalselt.
 - **contextMenus** — paremklõpsu valiku „Loe eesti keeles ette“ lisamiseks.
+- **activeTab** — juurdepääs ainult aktiivsele vahelehele ja ainult kasutaja žesti (paremklõps või kiirklahv) peale, et lugeda valitud tekst. Ei küsi püsivat juurdepääsu kõigile saitidele.
+- **scripting** — sisu-skripti süstimiseks aktiivsesse vahelehte alles siis, kui kasutaja laienduse käivitab.
 - **host_permissions: https://jutusta.ee/** — tõlke- ja kõnesünteesi-päringute tegemiseks Jutusta API-le.
 - **Single purpose:** valitud teksti tõlkimine eesti keelde ja ettelugemine.
 

@@ -1,6 +1,14 @@
 // Jutusta — service worker. Teeb API-kõned (host_permissions → CORS-vaba).
 const API_BASE = "https://jutusta.ee/api/v1";
 
+// Selgemad veateated levinud HTTP-staatustele.
+function apiError(stage, status) {
+  if (status === 402) return "Jutusta krediit/kvoot otsas — kontrolli kontot jutusta.ee-s";
+  if (status === 429) return "Jutusta päringulimiit täis — proovi hiljem uuesti";
+  if (status === 401 || status === 403) return "API võti vale või aegunud — ava laienduse seaded";
+  return `${stage} ebaõnnestus (HTTP ${status})`;
+}
+
 async function getConfig() {
   const d = await chrome.storage.local.get(["apiKey", "voice", "source", "target", "speed"]);
   return {
@@ -21,15 +29,28 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
-chrome.contextMenus.onClicked.addListener((info, tab) => {
+// Süstib sisu-skripti aktiivsesse vahelehte nõudmisel (activeTab annab loa
+// kasutaja žesti — paremklõps või kiirklahv — peale). content.js on idempotentne.
+async function ensureInjected(tabId) {
+  await chrome.scripting.insertCSS({ target: { tabId }, files: ["content.css"] });
+  await chrome.scripting.executeScript({ target: { tabId }, files: ["content.js"] });
+}
+
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   if (info.menuItemId === "jutusta-read" && tab?.id && info.selectionText) {
-    chrome.tabs.sendMessage(tab.id, { type: "READ_TEXT", text: info.selectionText });
+    try {
+      await ensureInjected(tab.id);
+      chrome.tabs.sendMessage(tab.id, { type: "READ_TEXT", text: info.selectionText });
+    } catch (_) {}
   }
 });
 
-chrome.commands.onCommand.addListener((cmd, tab) => {
+chrome.commands.onCommand.addListener(async (cmd, tab) => {
   if (cmd === "read-selection" && tab?.id) {
-    chrome.tabs.sendMessage(tab.id, { type: "READ_SELECTION" });
+    try {
+      await ensureInjected(tab.id);
+      chrome.tabs.sendMessage(tab.id, { type: "READ_SELECTION" });
+    } catch (_) {}
   }
 });
 
@@ -62,7 +83,7 @@ async function handleTranslate({ text, source, target, previous }) {
       previous: previous || null,
     }),
   });
-  if (!res.ok) return { error: `Tõlge ebaõnnestus (HTTP ${res.status})` };
+  if (!res.ok) return { error: apiError("Tõlge", res.status) };
   const data = await res.json();
   return { appended: data.appended || "" };
 }
@@ -82,7 +103,7 @@ async function handleTts({ text, voice, speed }) {
       }),
     }
   );
-  if (!res.ok) return { error: `Kõnesüntees ebaõnnestus (HTTP ${res.status})` };
+  if (!res.ok) return { error: apiError("Kõnesüntees", res.status) };
   const buf = await res.arrayBuffer();
   return { audioBase64: abToBase64(buf) };
 }

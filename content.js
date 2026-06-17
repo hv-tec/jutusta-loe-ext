@@ -1,56 +1,14 @@
-// Jutusta — content script. Püüab valiku, näitab nuppu, mängib heli järjest.
+// Jutusta — content script. Süstitakse nõudmisel (activeTab). Loeb valiku ette.
 (function () {
-  let btn = null;
+  if (window.__jutustaInit) return; // idempotentne: juba süstitud sellele lehele
+  window.__jutustaInit = true;
+
   let statusEl = null;
   let controller = null; // { cancelled, audio }
 
-  // --- Valiku tuvastus + hõljuv nupp ---
-  document.addEventListener("mouseup", (e) => {
-    setTimeout(() => {
-      const sel = window.getSelection();
-      const text = sel ? sel.toString().trim() : "";
-      if (text && !inBtn(e.target)) showButton(sel);
-      else if (!inBtn(e.target)) hideButton();
-    }, 10);
-  });
-  document.addEventListener("mousedown", (e) => {
-    if (btn && !inBtn(e.target)) hideButton();
-  });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") stopReading();
   });
-
-  function inBtn(t) {
-    return btn && (t === btn || btn.contains(t));
-  }
-
-  function showButton(sel) {
-    hideButton();
-    let rect;
-    try {
-      rect = sel.getRangeAt(0).getBoundingClientRect();
-    } catch (_) {
-      return;
-    }
-    const text = sel.toString().trim();
-    btn = document.createElement("div");
-    btn.className = "jutusta-read-btn";
-    btn.textContent = "🔊 Loe eesti k.";
-    btn.style.top = window.scrollY + rect.bottom + 6 + "px";
-    btn.style.left = window.scrollX + rect.left + "px";
-    btn.addEventListener("click", (ev) => {
-      ev.stopPropagation();
-      hideButton();
-      readText(text);
-    });
-    document.body.appendChild(btn);
-  }
-  function hideButton() {
-    if (btn) {
-      btn.remove();
-      btn = null;
-    }
-  }
 
   // --- Sõnumid service workerilt ---
   chrome.runtime.onMessage.addListener((msg) => {
