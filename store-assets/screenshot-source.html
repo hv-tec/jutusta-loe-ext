@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 800px; overflow: hidden; }
+  body {
+    font: 16px/1.6 -apple-system, "Segoe UI", system-ui, sans-serif;
+    background: linear-gradient(135deg, #eef2f7 0%, #dde7f3 100%);
+    color: #111;
+    position: relative;
+  }
+
+  /* --- Pealisriba (bränd) --- */
+  .banner {
+    height: 96px; display: flex; align-items: center; gap: 18px;
+    padding: 0 44px; background: #1f6feb; color: #fff;
+    box-shadow: 0 2px 14px rgba(31,111,235,.35);
+  }
+  .banner .logo { font-size: 40px; }
+  .banner h1 { font-size: 26px; font-weight: 700; letter-spacing: -.2px; }
+  .banner p { font-size: 15px; opacity: .92; margin-top: 2px; }
+  .banner .badge {
+    margin-left: auto; background: rgba(255,255,255,.16);
+    border: 1px solid rgba(255,255,255,.3); border-radius: 999px;
+    padding: 9px 18px; font-size: 14px; font-weight: 600;
+  }
+
+  /* --- Brauseriaken --- */
+  .browser {
+    position: absolute; top: 150px; left: 70px; width: 1140px; height: 590px;
+    background: #fff; border-radius: 14px; overflow: hidden;
+    box-shadow: 0 24px 60px rgba(20,40,80,.22);
+  }
+  .chrome-bar {
+    height: 46px; background: #f1f3f4; display: flex; align-items: center;
+    gap: 8px; padding: 0 16px; border-bottom: 1px solid #e3e6e8;
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot.r { background: #ff5f57; } .dot.y { background: #febc2e; } .dot.g { background: #28c840; }
+  .url {
+    margin-left: 14px; flex: 1; max-width: 620px; height: 28px; background: #fff;
+    border: 1px solid #e0e3e6; border-radius: 14px; display: flex; align-items: center;
+    padding: 0 14px; font-size: 13px; color: #5f6368;
+  }
+
+  /* --- Artikli sisu --- */
+  .article { padding: 40px 56px; }
+  .article h2 { font-size: 28px; font-weight: 700; margin-bottom: 18px; color: #1a1a1a; }
+  .article p { font-size: 17px; line-height: 1.75; color: #2b2b2b; margin-bottom: 16px; max-width: 880px; }
+  .sel { background: #b3d4fc; border-radius: 2px; box-shadow: 0 0 0 1px #9cc4f7; }
+
+  /* --- Paremklõpsu menüü --- */
+  .ctx {
+    position: absolute; top: 360px; left: 470px; width: 286px;
+    background: #fff; border: 1px solid #e0e0e0; border-radius: 10px;
+    box-shadow: 0 14px 40px rgba(0,0,0,.24); padding: 6px; font-size: 14.5px;
+    z-index: 5;
+  }
+  .ctx .it { padding: 9px 12px; border-radius: 7px; color: #3c4043; display: flex; align-items: center; gap: 10px; }
+  .ctx .it.muted { color: #9aa0a6; }
+  .ctx .it.active { background: #1f6feb; color: #fff; font-weight: 600; }
+  .ctx .sep { height: 1px; background: #ededed; margin: 5px 4px; }
+  .ctx .kbd { margin-left: auto; font-size: 12px; opacity: .8; }
+
+  /* --- Olekuriba (content.css-iga sarnane) --- */
+  .status {
+    position: absolute; right: 96px; bottom: 92px; z-index: 9;
+    display: flex; align-items: center; gap: 14px;
+    background: #1f2937; color: #fff; padding: 13px 16px 13px 20px;
+    border-radius: 12px; font-size: 15px; box-shadow: 0 10px 30px rgba(0,0,0,.3);
+  }
+  .status .stop { background: #374151; color: #fff; border: none; border-radius: 8px; padding: 7px 14px; font: inherit; }
+
+  /* --- Alumine vihjeriba --- */
+  .hintbar {
+    position: absolute; bottom: 22px; left: 0; width: 100%; text-align: center;
+    font-size: 14px; color: #5b6b80;
+  }
+  .hintbar b { color: #1f6feb; }
+</style>
+</head>
+<body>
+  <div class="banner">
+    <div class="logo">🔊</div>
+    <div>
+      <h1>Jutusta — Loe eesti keeles</h1>
+      <p>Vali veebilehel tekst ja kuula see eesti keeles ette</p>
+    </div>
+    <div class="badge">150+ häält · 40+ keelt</div>
+  </div>
+
+  <div class="browser">
+    <div class="chrome-bar">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <div class="url">🔒 example.com/article</div>
+    </div>
+    <div class="article">
+      <h2>The future of language technology</h2>
+      <p>Speech synthesis has improved dramatically over the past few years, making
+         it possible to listen to written content in a natural voice.</p>
+      <p><span class="sel">Selecting any passage of English text lets you hear it instantly in fluent Estonian — the extension translates the selection and reads it aloud, paragraph after paragraph.</span></p>
+      <p>This makes long articles, documentation and foreign news far more accessible
+         for everyday reading and learning.</p>
+    </div>
+  </div>
+
+  <div class="ctx">
+    <div class="it muted">Kopeeri</div>
+    <div class="it muted">Otsi Google'ist</div>
+    <div class="sep"></div>
+    <div class="it active">🔊 Loe eesti keeles ette <span class="kbd">⌥⇧R</span></div>
+    <div class="sep"></div>
+    <div class="it muted">Tõlgi leht</div>
+    <div class="it muted">Vaata lehe allikat</div>
+  </div>
+
+  <div class="status">
+    <span>Loen… (2/5)</span>
+    <button class="stop">Peata</button>
+  </div>
+
+  <div class="hintbar">
+    Vali tekst → <b>paremklõps</b> või <b>Alt+Shift+R</b> · vali lähte- ja sihtkeel · reguleeri kõnetempot · peata klahviga Esc
+  </div>
+</body>
+</html>
