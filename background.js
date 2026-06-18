@@ -88,7 +88,7 @@ async function handleTranslate({ text, source, target, previous }) {
   return { appended: data.appended || "" };
 }
 
-async function handleTts({ text, voice, speed }) {
+async function handleTts({ text, voice, speed, language }) {
   const cfg = await getConfig();
   if (!cfg.apiKey) return { error: "API võti puudub — ava laienduse seaded." };
   const res = await fetch(
@@ -99,6 +99,7 @@ async function handleTts({ text, voice, speed }) {
       body: JSON.stringify({
         text,
         model_id: "jutusta_v1",
+        language_code: language || cfg.target,
         voice_settings: { speed: typeof speed === "number" ? speed : cfg.speed },
       }),
     }

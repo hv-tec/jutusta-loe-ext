@@ -7,7 +7,7 @@ mkdir -p dist
 rm -f dist/jutusta-loe-ext.zip
 zip -r -q dist/jutusta-loe-ext.zip \
   manifest.json background.js content.js content.css \
-  options.html options.js popup.html popup.js \
+  options.html options.js voices-data.js popup.html popup.js \
   icons \
   -x "*.DS_Store" "icons/icon512.png"
 echo "✅ dist/jutusta-loe-ext.zip"

@@ -62,7 +62,7 @@
     if (tr.error) throw new Error(tr.error);
     const et = (tr.appended || "").trim();
     if (!et) return null;
-    const tts = await send({ type: "tts", text: et, voice: opts.voice, speed: opts.speed });
+    const tts = await send({ type: "tts", text: et, voice: opts.voice, speed: opts.speed, language: opts.target });
     if (tts.error) throw new Error(tts.error);
     return b64ToBlob(tts.audioBase64, "audio/wav");
   }

@@ -20,10 +20,10 @@ Kõik tekstid ja varad poe-vormi täitmiseks. Kopeeri väljadesse Developer Dash
 > Vali suvalisel veebilehel tekst ja lase see eesti keeles ette lugeda. Laiendus tõlgib valiku ja loeb selle loomuliku eestikeelse häälega — heli algab kohe ja jätkub sujuvalt, sest järgmist lõiku genereeritakse juba eelmise mängimise ajal.
 >
 > **Funktsioonid**
-> • 12 eestikeelset häält (mehed ja naised)
+> • 150+ häält 40+ keeles (mehed ja naised), sh 39 eestikeelset — laetakse otse Jutusta API-st
+> • Vali lähte- ja sihtkeel; hääled filtreeritakse valitud sihtkeele järgi
 > • Käivitus: vali tekst → paremklõpsu menüü „Loe eesti keeles ette“ või kiirklahv Alt+Shift+R
 > • Reguleeritav kõnetempo (0,5×–2×)
-> • Vali ka lähtekeel (nt en, de, ru) ja sihtkeel
 > • Peata igal hetkel klahviga Esc
 >
 > **Vajab Jutusta API võtit** (jutusta.ee → Arendajatele). Võti salvestatakse ainult sinu brauseris.
