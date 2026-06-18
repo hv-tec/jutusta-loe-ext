@@ -169,7 +169,14 @@ $("test").addEventListener("click", async () => {
         }),
       }
     );
-    if (!res.ok) return msg(`Viga: HTTP ${res.status}`, "#b00020");
+    if (!res.ok) {
+      let detail = "";
+      try {
+        const j = await res.json();
+        detail = (j && j.detail && (j.detail.message || j.detail)) || "";
+      } catch (_) {}
+      return msg("Viga: " + (detail || `HTTP ${res.status}`), "#b00020");
+    }
     const blob = await res.blob();
     new Audio(URL.createObjectURL(blob)).play();
     msg("Töötab ✓", "#137333");

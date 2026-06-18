@@ -3,10 +3,20 @@ const API_BASE = "https://jutusta.ee/api/v1";
 
 // Selgemad veateated levinud HTTP-staatustele.
 function apiError(stage, status) {
-  if (status === 402) return "Jutusta krediit/kvoot otsas — kontrolli kontot jutusta.ee-s";
+  if (status === 402) return "Jutusta krediit otsas — osta krediiti jutusta.ee-s";
   if (status === 429) return "Jutusta päringulimiit täis — proovi hiljem uuesti";
   if (status === 401 || status === 403) return "API võti vale või aegunud — ava laienduse seaded";
   return `${stage} ebaõnnestus (HTTP ${status})`;
+}
+
+// Eelista API enda veateadet (nt "Sul pole piisavalt krediiti"), muidu üldine.
+async function errFromRes(stage, res) {
+  try {
+    const j = await res.json();
+    const m = j && j.detail && (j.detail.message || (typeof j.detail === "string" ? j.detail : null));
+    if (m) return m;
+  } catch (_) {}
+  return apiError(stage, res.status);
 }
 
 async function getConfig() {
@@ -83,7 +93,7 @@ async function handleTranslate({ text, source, target, previous }) {
       previous: previous || null,
     }),
   });
-  if (!res.ok) return { error: apiError("Tõlge", res.status) };
+  if (!res.ok) return { error: await errFromRes("Tõlge", res) };
   const data = await res.json();
   return { appended: data.appended || "" };
 }
@@ -104,7 +114,7 @@ async function handleTts({ text, voice, speed, language }) {
       }),
     }
   );
-  if (!res.ok) return { error: apiError("Kõnesüntees", res.status) };
+  if (!res.ok) return { error: await errFromRes("Kõnesüntees", res) };
   const buf = await res.arrayBuffer();
   return { audioBase64: abToBase64(buf) };
 }
