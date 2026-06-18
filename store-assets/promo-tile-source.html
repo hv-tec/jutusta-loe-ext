@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 440px; height: 280px; overflow: hidden; }
+  body {
+    font: 16px/1.4 -apple-system, "Segoe UI", system-ui, sans-serif;
+    background: linear-gradient(135deg, #2b7bff 0%, #1f6feb 55%, #1456c4 100%);
+    color: #fff; position: relative;
+  }
+  /* dekoratiivsed helilained */
+  .wave { position: absolute; right: -60px; top: -60px; width: 320px; height: 320px;
+    border: 36px solid rgba(255,255,255,.07); border-radius: 50%; }
+  .wave2 { position: absolute; right: 10px; top: 30px; width: 200px; height: 200px;
+    border: 26px solid rgba(255,255,255,.06); border-radius: 50%; }
+
+  .wrap { position: relative; z-index: 2; height: 100%; padding: 30px 32px;
+    display: flex; flex-direction: column; }
+  .logo { font-size: 52px; line-height: 1; }
+  h1 { font-size: 38px; font-weight: 800; letter-spacing: -.5px; margin-top: 14px; }
+  h2 { font-size: 21px; font-weight: 600; opacity: .95; margin-top: 2px; }
+  p.tag { font-size: 15.5px; opacity: .9; margin-top: 12px; max-width: 360px; }
+  .badge { margin-top: auto; align-self: flex-start; background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.34); border-radius: 999px;
+    padding: 9px 18px; font-size: 14.5px; font-weight: 700; }
+</style>
+</head>
+<body>
+  <div class="wave"></div>
+  <div class="wave2"></div>
+  <div class="wrap">
+    <div class="logo">🔊</div>
+    <h1>Jutusta</h1>
+    <h2>Loe eesti keeles</h2>
+    <p class="tag">Vali veebilehel tekst ja kuula see eesti keeles ette — tõlge + kõnesüntees.</p>
+    <div class="badge">150+ häält · 40+ keelt</div>
+  </div>
+</body>
+</html>
