@@ -7,7 +7,7 @@ Kõik tekstid ja varad poe-vormi täitmiseks. Kopeeri väljadesse Developer Dash
 **Nimi:** Jutusta — Loe eesti keeles
 
 **Lühikirjeldus** (≤132 tähemärki):
-> Vali veebilehel ingliskeelne tekst ja kuula see eesti keeles ette — tõlge + kõnesüntees Jutusta API kaudu.
+> Vali veebilehel tekst ja kuula see eesti keeles ette — tõlge + kõnesüntees Jutusta API kaudu. 150+ häält, 40+ keelt.
 
 **Kategooria:** Productivity (alt: Accessibility)
 
@@ -52,11 +52,17 @@ Kõik tekstid ja varad poe-vormi täitmiseks. Kopeeri väljadesse Developer Dash
 - Väike promo-tile 440×280: `store-assets/promo-tile-440x280.png`
 
 ## Üleslaaditav pakett
-`dist/jutusta-loe-ext.zip` (ehita: `bash tools/build-zip.sh`)
+`dist/jutusta-loe-ext.zip` — **versioon 1.1.1** (ehita: `bash tools/build-zip.sh`)
+
+**Mis on uut v1.1.x-s:**
+- 150+ häält 40+ keeles, laetakse dünaamiliselt Jutusta API-st (enne 12 kõvasti koodis)
+- Lähte- + sihtkeele valik; hääled filtreeritakse sihtkeele järgi
+- `<all_urls>` asendatud turvalisema `activeTab`-iga (käivitus paremklõps / Alt+Shift+R)
+- Selgemad veateated (kuvab API enda sõnumi, nt „krediit otsas“)
 
 ## Käsitsi sammud (ainult sina saad teha)
 1. Registreeru Chrome Web Store Developer'iks: https://chrome.google.com/webstore/devconsole (ühekordne 5 USD tasu)
-2. „Add new item“ → laadi üles `dist/jutusta-loe-ext.zip`
+2. Ava item → **Package → Upload new package** → `dist/jutusta-loe-ext.zip` (v1.1.1; kirjutab vana 1.0.1 mustandi üle)
 3. Täida ülaltoodud kirjeldus, kategooria, keel; laadi screenshot + ikoon
 4. Kleebi privaatsuspoliitika URL; täida andmekasutuse vorm ülaltoodu järgi
 5. Esita ülevaatamiseks (review võtab tavaliselt mõne päeva)
