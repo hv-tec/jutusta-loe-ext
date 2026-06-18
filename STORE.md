@@ -15,20 +15,22 @@ Kõik tekstid ja varad poe-vormi täitmiseks. Kopeeri väljadesse Developer Dash
 
 ## Detailne kirjeldus
 
-> **Loe ingliskeelne (või muukeelne) veeb eesti keeles ette.**
->
-> Vali suvalisel veebilehel tekst ja lase see eesti keeles ette lugeda. Laiendus tõlgib valiku ja loeb selle loomuliku eestikeelse häälega — heli algab kohe ja jätkub sujuvalt, sest järgmist lõiku genereeritakse juba eelmise mängimise ajal.
->
-> **Funktsioonid**
-> • 150+ häält 40+ keeles (mehed ja naised), sh 39 eestikeelset — laetakse otse Jutusta API-st
-> • Vali lähte- ja sihtkeel; hääled filtreeritakse valitud sihtkeele järgi
-> • Käivitus: vali tekst → paremklõpsu menüü „Loe eesti keeles ette“ või kiirklahv Alt+Shift+R
-> • Reguleeritav kõnetempo (0,5×–2×)
-> • Peata igal hetkel klahviga Esc
->
-> **Vajab Jutusta API võtit** (jutusta.ee → Arendajatele). Võti salvestatakse ainult sinu brauseris.
->
-> Avatud lähtekood: https://github.com/hv-tec/jutusta-loe-ext
+(Chrome Web Store kirjelduse väli on lihttekst — kopeeri täpselt nii.)
+
+Loe ingliskeelne (või muukeelne) veeb eesti keeles ette.
+
+Vali suvalisel veebilehel tekst ja lase see eesti keeles ette lugeda. Laiendus tõlgib valiku ja loeb selle loomuliku eestikeelse häälega — heli algab kohe ja jätkub sujuvalt, sest järgmist lõiku genereeritakse juba eelmise mängimise ajal.
+
+Funktsioonid
+• 150+ häält 40+ keeles (mehed ja naised), sh 39 eestikeelset — laetakse otse Jutusta API-st
+• Vali lähte- ja sihtkeel; hääled filtreeritakse valitud sihtkeele järgi
+• Käivitus: vali tekst → paremklõpsu menüü „Loe eesti keeles ette“ või kiirklahv Alt+Shift+R
+• Reguleeritav kõnetempo (0,5×–2×)
+• Peata igal hetkel klahviga Esc
+
+Vajab Jutusta API võtit (jutusta.ee → Arendajatele). Võti salvestatakse ainult sinu brauseris.
+
+Avatud lähtekood: https://github.com/hv-tec/jutusta-loe-ext
 
 ## Õiguste põhjendused (Permission justifications)
 
